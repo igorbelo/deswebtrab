@@ -25,8 +25,8 @@ urlpatterns = [
     url(r'^services/?', TemplateView.as_view(template_name='services.html'), name='services'),
     url(r'^contact/?', TemplateView.as_view(template_name='contact.html'), name='contact'),
     url(r'^signup/?', TemplateView.as_view(template_name='signup.html'), name='signup'),
-    url(r'^customer_signup/?', TemplateView.as_view(template_name='customer_signup.html'), name='customer_signup'),
-    url(r'^supplier_signup/?', TemplateView.as_view(template_name='supplier_signup.html'), name='supplier_signup'),
+    url(r'^supplier_signup/?', views.SupplierSignUpView.as_view(), name='supplier_signup'),
+    url(r'^customer_signup/?', views.CustomerSignUpView.as_view(), name='customer_signup'),
     url(r'^book/?', views.BookView.as_view(), name='book'),
     url(r'^donate/?', views.DonateView.as_view(), name='donate'),
     url(r'^$', TemplateView.as_view(template_name='home.html'), name='home')

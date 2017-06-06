@@ -15,21 +15,23 @@ class BaseModel(models.Model):
 class Customer(BaseModel):
     user = models.OneToOneField(
         settings.AUTH_USER_MODEL, related_name='customer')
-    full_name = models.CharField(max_length=200)
-    mothers_name = models.CharField(max_length=200)
-    birth_date = models.DateField()
+    full_name = models.CharField('Nome Completo', max_length=200)
+    mothers_name = models.CharField('Nome da Mãe', max_length=200)
+    birth_date = models.DateField('Data de Nascimento')
     cpf = models.CharField(max_length=11)
     rg = models.CharField(max_length=10)
-    address = models.TextField()
-    sus = models.CharField(max_length=20)
+    address = models.TextField('Endereço')
+    sus = models.CharField('Cartão do SUS', max_length=20)
 
 class Supplier(BaseModel):
-    full_name = models.CharField(max_length=200)
-    razao_social = models.CharField(max_length=200)
+    user = models.OneToOneField(
+        settings.AUTH_USER_MODEL, related_name='supplier', null=True)
+    full_name = models.CharField('Nome Completo', max_length=200, null=True, blank=True)
+    razao_social = models.CharField('Razão Social', max_length=200, null=True, blank=True)
     cpf = models.CharField(max_length=11, null=True, blank=True)
     cnpj = models.CharField(max_length=14, null=True, blank=True)
-    address = models.TextField()
-    description = models.TextField()
+    address = models.TextField('Endereço')
+    description = models.TextField('Descrição')
 
 UNITS = ('mg', 'g', 'kg', 'ml', 'l', 'cx')
 UNIT_CHOICES = zip(UNITS, UNITS)
