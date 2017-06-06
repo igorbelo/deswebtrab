@@ -1,0 +1,5 @@
+*.sqlite3
+*.pyc
+prescriptions
+static
+.DS_STORE

@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8">
+    <title>Banco de Remédios</title>
+    <link href="{% static 'website/css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+    <link href='http://fonts.googleapis.com/css?family=Ropa+Sans' rel='stylesheet' type='text/css' />
+    <script type="text/javascript" src="{% static 'website/js/funcoes.js' %}"></script>
+  </head>
+
+  <body>
+    {% block header %}
+    <header>
+      <div class="wrap">
+	<!--start-logo-->
+	<div class="logo">
+	  <a href="index.html"><img src="{% static 'website/images/logo.png' %}" title="logo" alt = "Logo" /></a>
+	</div>
+	<!--end-logo-->
+	<!--start-top-nav-->
+	<nav>
+	  <ul>
+	    <li><a href="{% url 'home' %}">Home</a></li>
+	    <li><a href="{% url 'about' %}">Sobre Nós</a></li>
+	    <li><a href="{% url 'services' %}">Serviços</a></li>
+	    <li><a href="{% url 'contact' %}">Contato</a></li>
+	    <li class="user-options-box">
+	      <select id="actions-select" onchange="javascript:userActionChanged(this);">
+		<option class="welcome-text"></option>
+		<option class="logout">Sair</option>
+	      </select>
+	    </li>
+	  </ul>
+	  <!--end-top-nav-->
+	</nav>
+	<div class="clear"></div>
+      </div>
+      <!--end-header-->
+    </header>
+    {% endblock %}
+    {% block content %}{% endblock %}
+    {% block footer %}
+    <footer>
+
+      <div class="wrap">
+	<div class="footer-left">
+	  <ul>
+	    <li><a href="index.html">Home</a></li>
+	    <li><a href="about.html">Sobre Nós</a></li>
+	    <li><a href="services.html">Serviços</a></li>
+	    <li><a href="contact.html">Contato</a></li>
+	  </ul>
+	</div>
+
+      </div>
+      <div class="clear"> </div>
+    </footer>
+    {% endblock %}
+  </body>
+</html>

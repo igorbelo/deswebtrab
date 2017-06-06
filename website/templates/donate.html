@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<main>
+  <div class = "doaremedio">
+    <div class = "wrap">
+      <center>
+        {% if messages %}
+        <ul class="messages">
+          {% for message in messages %}
+          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </center>
+      <form method="POST" action="">
+        {% csrf_token %}
+        {{ form.as_p }}
+	<div class = "button">
+	  <input name="botaoreservar" type="submit" value="Doar" />
+	</div>
+    </div>
+    </form>
+  </div>
+</div>
+</main>
+<div class="clear"> </div>
+{% endblock %}

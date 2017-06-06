@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<main>
+  <div class = "reservaremedio">
+    <div class = "wrap">
+      <center>
+        {% if messages %}
+        <ul class="messages">
+          {% for message in messages %}
+          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </center>
+      <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+	<div class="texto-reserva">
+	  <h4> Reservar Remédio</h4>
+          {{ form.as_p }}
+          <div class="button">
+            <input type="submit" value="Confirmar" />
+          </div>
+      </form>
+    </div>
+  </div>
+</main>
+<div class="clear"> </div>
+{% endblock %}
