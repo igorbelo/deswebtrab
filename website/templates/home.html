@@ -27,10 +27,10 @@
       <div class="listview_1_of_3 images_1_of_3">
 	<section>
 	  <div class="listimg listimg_1_of_2">
-	    <a href = "login.html"><img src="{% static 'website/images/grid-img1.png' %}" alt = "Homem"></a>
+	    <a href="{% url 'login' %}"><img src="{% static 'website/images/grid-img1.png' %}" alt = "Homem"></a>
 	  </div>
 	  <div class="text list_1_of_2">
-	    <a href = "login.html"> <h3>Faça o Login</h3></a>
+	    <a href="{% url 'login' %}"> <h3>Faça o Login</h3></a>
 	    <p>Não é cadastrado?</p>
 	    <div class="button"><span><a href="{% url 'signup' %}">Cadastre-se agora!</a></span></div>
 	  </div>

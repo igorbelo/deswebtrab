@@ -29,5 +29,7 @@ urlpatterns = [
     url(r'^customer_signup/?', views.CustomerSignUpView.as_view(), name='customer_signup'),
     url(r'^book/?', views.BookView.as_view(), name='book'),
     url(r'^donate/?', views.DonateView.as_view(), name='donate'),
+    url(r'^login/?', views.LoginView.as_view(), name='login'),
+    url(r'^logout/?', views.LogoutView.as_view(), name='logout'),
     url(r'^$', TemplateView.as_view(template_name='home.html'), name='home')
 ]

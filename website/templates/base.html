@@ -6,6 +6,9 @@
     <title>Banco de Remédios</title>
     <link href="{% static 'website/css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
     <link href='http://fonts.googleapis.com/css?family=Ropa+Sans' rel='stylesheet' type='text/css' />
+    <script type="text/javascript">
+      var LOGOUT_URL = "{% url 'logout' %}";
+    </script>
     <script type="text/javascript" src="{% static 'website/js/funcoes.js' %}"></script>
   </head>
 
@@ -25,12 +28,14 @@
 	    <li><a href="{% url 'about' %}">Sobre Nós</a></li>
 	    <li><a href="{% url 'services' %}">Serviços</a></li>
 	    <li><a href="{% url 'contact' %}">Contato</a></li>
+            {% if user.is_authenticated %}
 	    <li class="user-options-box">
 	      <select id="actions-select" onchange="javascript:userActionChanged(this);">
-		<option class="welcome-text"></option>
+		<option class="welcome-text">Olá {{ user.supplier.full_name }}</option>
 		<option class="logout">Sair</option>
 	      </select>
 	    </li>
+            {% endif %}
 	  </ul>
 	  <!--end-top-nav-->
 	</nav>
@@ -46,10 +51,10 @@
       <div class="wrap">
 	<div class="footer-left">
 	  <ul>
-	    <li><a href="index.html">Home</a></li>
-	    <li><a href="about.html">Sobre Nós</a></li>
-	    <li><a href="services.html">Serviços</a></li>
-	    <li><a href="contact.html">Contato</a></li>
+	    <li><a href="{% url 'home' %}">Home</a></li>
+	    <li><a href="{% url 'about' %}">Sobre Nós</a></li>
+	    <li><a href="{% url 'services' %}">Serviços</a></li>
+	    <li><a href="{% url 'contact' %}">Contato</a></li>
 	  </ul>
 	</div>
 

@@ -19,6 +19,10 @@ class SupplierForm(ModelForm):
     class Meta:
         model = Supplier
         fields = ('full_name','razao_social','cpf','cnpj','address','description')
+        widgets = {
+            'address': forms.TextInput(attrs={'class': 'form-control'}),
+            'description': forms.TextInput(attrs={'class': 'form-control'})
+        }
 
 class CustomerForm(ModelForm):
     password = forms.CharField(widget=forms.PasswordInput(), label='Senha')
@@ -26,3 +30,6 @@ class CustomerForm(ModelForm):
     class Meta:
         model = Customer
         fields = ('full_name','mothers_name','birth_date','cpf','rg','address','sus')
+        widgets = {
+            'address': forms.TextInput(attrs={'class': 'form-control'}),
+        }
